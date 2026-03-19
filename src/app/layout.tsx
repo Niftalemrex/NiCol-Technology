@@ -38,16 +38,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        {/* SEO structured data */}
         <StructuredData data={organizationData} />
+
+        {/* Google Search Console verification */}
+        <meta
+          name="google-site-verification"
+          content="RFZMKVAHZrhhNWLMbceVlARwcs7Rj3Z2kE-dTCTP0Vw"
+        />
+
+        {/* Viewport for responsive design */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Font Awesome CDN */}
         <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
       </head>
       <body>
         <Header />
-        <main >{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

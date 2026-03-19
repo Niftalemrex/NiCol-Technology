@@ -1,0 +1,71 @@
+/* RootLayout.css */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base */
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Layout Structure */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: #0f172a;
+  color: white;
+  padding: 15px 20px;
+
+  /* FIX: prevent content overlap */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  width: 100%;
+
+  /* FIX: prevent content hidden under header */
+  padding-top: 20px;
+}
+
+/* Footer */
+footer {
+  background-color: #0f172a;
+  color: white;
+  padding: 15px 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+/* Reusable Container (ONLY use when needed) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Full-width sections */
+.section {
+  width: 100%;
+  padding: 2rem 1.5rem;
+}

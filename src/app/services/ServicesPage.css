@@ -1,0 +1,603 @@
+/* Services.css - Premium Edition with White Background & iOS 16 Glass */
+
+/* ===== CSS Variables & Theme Configuration ===== */
+:root {
+    --primary-color: #0071e3; /* iOS blue */
+    --primary-glow: rgba(0, 113, 227, 0.3);
+    --secondary-color: #5e5ce0; /* iOS purple-blue */
+    --accent-color: #00c7be; /* iOS teal */
+    --light-bg: #ffffff;
+    --off-white: #f5f5f7; /* Apple off-white */
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-bg-solid: #ffffff;
+    --text-primary: #1d1c1f; /* iOS dark text */
+    --text-secondary: #86868b; /* iOS secondary text */
+    --text-tertiary: #a1a1a6; /* iOS tertiary text */
+    --border-color: rgba(0, 0, 0, 0.1);
+    --border-hover: rgba(0, 113, 227, 0.3);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --gradient-1: linear-gradient(135deg, #0071e3 0%, #5e5ce0 50%, #00c7be 100%);
+    --gradient-2: linear-gradient(135deg, rgba(0, 113, 227, 0.1) 0%, rgba(94, 92, 224, 0.1) 50%, rgba(0, 199, 190, 0.1) 100%);
+    --gradient-3: linear-gradient(135deg, #f5f5f7 0%, #ffffff 50%, #f5f5f7 100%);
+    --glass-effect: blur(20px) saturate(180%);
+    --ios-glass: blur(30px) saturate(200%);
+    --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-default: all 0.3s ease;
+    --border-radius-sm: 12px;
+    --border-radius-md: 18px;
+    --border-radius-lg: 24px;
+    --border-radius-xl: 32px;
+    --border-radius-full: 50px;
+    --ios-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.02) inset;
+    --ios-shadow-hover: 0 30px 60px -20px rgba(0, 113, 227, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  }
+  
+  /* ===== Base Section Styles ===== */
+  .services {
+    position: relative;
+    padding: 8rem 2rem;
+    background: var(--gradient-3);
+    color: var(--text-primary);
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+  /* Subtle Pattern Background */
+  .services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 30% 40%, rgba(0, 113, 227, 0.02) 0%, transparent 30%),
+                      radial-gradient(circle at 70% 60%, rgba(94, 92, 224, 0.02) 0%, transparent 30%),
+                      radial-gradient(circle at 50% 80%, rgba(0, 199, 190, 0.02) 0%, transparent 30%);
+    opacity: 0.8;
+    pointer-events: none;
+  }
+  
+  /* iOS-style Grain Effect */
+  .services::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+  
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* ===== Entrance Animations ===== */
+  .services {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .services.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ===== Section Header Styles ===== */
+  .services-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+  }
+  
+  /* iOS-style Badge */
+  .services-badge {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    background: rgba(0, 113, 227, 0.08);
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius-full);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 113, 227, 0.15);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Main Title with iOS Gradient */
+  .services-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .gradient-text {
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  /* iOS-style Subtitle */
+  .services-subtitle {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+    font-weight: 400;
+  }
+  
+  /* ===== Services Grid ===== */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+  }
+  
+  /* ===== iOS 16 Glass Cards ===== */
+  .service-card {
+    background: var(--card-bg);
+    backdrop-filter: var(--ios-glass);
+    -webkit-backdrop-filter: var(--ios-glass);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: var(--border-radius-xl);
+    padding: 2.5rem 2rem;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: var(--ios-shadow);
+  }
+  
+  /* iOS-style Inner Glow */
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 255, 255, 0.9),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* iOS-style Bottom Border */
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(0, 113, 227, 0.3), 
+      rgba(94, 92, 224, 0.3), 
+      rgba(0, 199, 190, 0.3), 
+      transparent
+    );
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+    transform-origin: center;
+  }
+  
+  .service-card:hover::after {
+    transform: scaleX(1);
+  }
+  
+  .service-card:hover::before {
+    opacity: 1;
+  }
+  
+  /* iOS 16 Hover Effect */
+  .service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--ios-shadow-hover);
+    background: rgba(255, 255, 255, 0.85);
+  }
+  
+  /* ===== FIXED: Card Icon - iOS Style with Visible Icons ===== */
+  .card-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-2);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px -10px rgba(0, 113, 227, 0.2);
+  }
+  
+  /* iOS Icon Inner Glow */
+  .card-icon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent 70%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  /* FIXED: Icon styling - making icons visible with solid color first */
+  .card-icon i {
+    font-size: 2.2rem;
+    color: var(--primary-color); /* Solid color fallback */
+    transition: var(--transition-smooth);
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    line-height: 1;
+  }
+  
+  /* Apply gradient to icons on hover only */
+  .service-card:hover .card-icon i {
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: scale(1.1);
+  }
+  
+  /* Alternative: Keep solid colors but add gradient overlay */
+  .card-icon i {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    transition: var(--transition-smooth);
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Add a subtle gradient tint to icons */
+  .card-icon {
+    background: linear-gradient(135deg, rgba(0, 113, 227, 0.15) 0%, rgba(94, 92, 224, 0.1) 100%);
+  }
+  
+  /* Hover effect for icon container */
+  .service-card:hover .card-icon {
+    transform: scale(1.05) rotate(2deg);
+    background: linear-gradient(135deg, 
+      rgba(0, 113, 227, 0.25) 0%, 
+      rgba(94, 92, 224, 0.2) 50%, 
+      rgba(0, 199, 190, 0.2) 100%
+    );
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 20px 30px -15px rgba(0, 113, 227, 0.4);
+  }
+  
+  /* Card Title - iOS SF Pro Style */
+  .card-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    transition: var(--transition-default);
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.01em;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  }
+  
+  .service-card:hover .card-title {
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Card Description */
+  .card-desc {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    flex-grow: 1;
+    position: relative;
+    font-weight: 400;
+  }
+  
+  /* iOS-style Stats */
+  .service-stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .stat-item {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+  
+  /* iOS-style Link */
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: var(--transition-default);
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    position: relative;
+    margin-top: auto;
+  }
+  
+  .card-link .arrow {
+    transition: transform 0.3s ease;
+    font-size: 1.1rem;
+  }
+  
+  .card-link:hover {
+    gap: 1rem;
+    color: var(--secondary-color);
+  }
+  
+  .card-link:hover .arrow {
+    transform: translateX(6px);
+  }
+  
+  /* ===== Floating Icons System ===== */
+  .floating-service-icon {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(0, 113, 227, 0.05); /* Slightly more visible */
+    pointer-events: none;
+    z-index: 1;
+    animation: floatAround 25s infinite linear;
+    transition: all 0.3s ease;
+  }
+  
+  .floating-service-icon:nth-child(even) {
+    color: rgba(94, 92, 224, 0.05);
+  }
+  
+  .floating-service-icon:nth-child(3n) {
+    color: rgba(0, 199, 190, 0.05);
+  }
+  
+  @keyframes floatAround {
+    0% {
+      transform: translateY(100vh) translateX(-100%) rotate(0deg);
+    }
+    100% {
+      transform: translateY(-100vh) translateX(100%) rotate(360deg);
+    }
+  }
+  
+  /* ===== Responsive Design ===== */
+  @media (max-width: 1200px) {
+    .services {
+      padding: 6rem 2rem;
+    }
+    
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .services-title {
+      font-size: 3rem;
+    }
+    
+    .service-card {
+      padding: 2rem 1.5rem;
+    }
+    
+    .card-icon {
+      width: 70px;
+      height: 70px;
+    }
+    
+    .card-icon i {
+      font-size: 2rem;
+    }
+    
+    .card-title {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .services {
+      padding: 4rem 1.5rem;
+    }
+    
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .services-header {
+      margin-bottom: 3rem;
+    }
+    
+    .services-title {
+      font-size: 2.5rem;
+    }
+    
+    .service-card {
+      padding: 2rem 1.5rem;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px) scale(1.01);
+    }
+    
+    .floating-service-icon {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .services {
+      padding: 3rem 1rem;
+    }
+    
+    .services-title {
+      font-size: 2rem;
+    }
+    
+    .card-icon {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .card-icon i {
+      font-size: 1.8rem;
+    }
+    
+    .card-title {
+      font-size: 1.3rem;
+    }
+    
+    .card-desc {
+      font-size: 0.95rem;
+    }
+    
+    .stat-number {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* ===== Reduced Motion Preferences ===== */
+  @media (prefers-reduced-motion: reduce) {
+    .services,
+    .service-card,
+    .card-icon,
+    .floating-service-icon,
+    .card-link .arrow,
+    .services-badge,
+    .gradient-text {
+      animation: none;
+      transition: none;
+    }
+    
+    .floating-service-icon {
+      display: none;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-2px);
+    }
+  }
+  
+  /* ===== Loading Animation for Cards ===== */
+  .service-card {
+    animation: cardReveal 0.6s ease-out backwards;
+  }
+  
+  @keyframes cardReveal {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .service-card:nth-child(1) { animation-delay: 0.1s; }
+  .service-card:nth-child(2) { animation-delay: 0.15s; }
+  .service-card:nth-child(3) { animation-delay: 0.2s; }
+  .service-card:nth-child(4) { animation-delay: 0.25s; }
+  .service-card:nth-child(5) { animation-delay: 0.3s; }
+  .service-card:nth-child(6) { animation-delay: 0.35s; }
+  
+  /* ===== Custom Scrollbar ===== */
+  .services::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .services::-webkit-scrollbar-track {
+    background: var(--off-white);
+  }
+  
+  .services::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 4px;
+  }
+  
+  /* ===== Selection Styling ===== */
+  .services ::selection {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  /* ===== Debug helper - remove after fixing ===== */
+  /* Uncomment this to see card boundaries 
+  .service-card {
+    border: 2px solid red;
+  }
+  */

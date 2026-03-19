@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://nicol-technology.vercel.app
+
+# Sitemaps
+Sitemap: https://nicol-technology.vercel.app/sitemap.xml

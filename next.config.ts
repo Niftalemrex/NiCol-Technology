@@ -1,17 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true, // recommended for dev
+  reactStrictMode: true,
 
   typescript: {
-    ignoreBuildErrors: false, // stop build if TS errors
+    ignoreBuildErrors: false,
   },
 
   images: {
-    unoptimized: true, // optional
+    unoptimized: true, // quick deploy; remove if using Next.js optimization
+    // domains: ["example.com"], // optional if you want optimized external images
   },
 
-  // ⚠ Do NOT add turbopack here unless you are sure of the root
+  // Optional for clean URLs
+  trailingSlash: false,
+
+  // ⚠ Do not add turbopack unless ready
 };
 
 export default nextConfig;

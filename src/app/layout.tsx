@@ -1,9 +1,19 @@
-// layout.tsx (Server Component)
+// src/app/layout.tsx
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import StructuredData from "../components/seo/StructuredData";
 import { fetchReviews } from "../lib/fetchReviews";
 
+// ✅ Define the Review type
+interface Review {
+  id?: string;
+  name: string;
+  comment: string;
+  rating: number;
+  created_at?: string;
+}
+
+// ✅ Metadata for the page
 export const metadata = {
   title: "NiCol Technologies | AI, Web & Mobile Solutions",
   description:
@@ -12,19 +22,24 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   // Server-side fetch reviews
-  let reviews: any[] = [];
+  let reviews: Review[] = [];
   try {
-    reviews = await fetchReviews();
+    reviews = await fetchReviews(); // make sure fetchReviews returns Review[]
   } catch (err) {
-    console.error(err);
+    console.error("Failed to fetch reviews:", err);
   }
 
   const totalReviews = reviews.length;
+
+  // ✅ Properly typed reduce function
   const avgRating =
     totalReviews > 0
-      ? (reviews.reduce((acc, r) => acc + r.rating, 0) / totalReviews).toFixed(1)
+      ? (
+          reviews.reduce((acc: number, r: Review) => acc + r.rating, 0) / totalReviews
+        ).toFixed(1)
       : "5.0";
 
+  // Structured Data for SEO (LocalBusiness + Reviews)
   const localBusinessData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -43,7 +58,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       postalCode: "1000",
       addressCountry: "ET",
     },
-    priceRange: "ETB 53,151", // optional if you want nightly price like hotels
+    priceRange: "ETB 53,151", // optional
     openingHours: "Mo-Fr 09:00-18:00",
     sameAs: [
       "https://www.facebook.com/nicoltech",
@@ -57,7 +72,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       bestRating: "5",
       worstRating: "1"
     },
-    review: reviews.map(r => ({
+    review: reviews.map((r: Review) => ({
       "@type": "Review",
       author: { "@type": "Person", name: r.name },
       reviewRating: {

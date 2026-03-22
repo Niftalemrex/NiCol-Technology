@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation"; // 👈 Add this import
 import "./AboutPage.css";
 
 // TypeScript Interfaces
@@ -19,6 +20,7 @@ interface Milestone {
 
 const AboutPage: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const router = useRouter(); // 👈 Initialize router
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
@@ -86,11 +88,16 @@ const AboutPage: React.FC = () => {
   ];
 
   const teamMembers: TeamMember[] = [
-    { name: 'Nicolas Tekle', role: 'Founder & CEO', bio: 'Full-stack developer with 10+ years experience in building scalable solutions.', icon: 'fa-solid fa-user-tie' },
-    { name: 'Sara Hailu', role: 'Lead AI Engineer', bio: 'AI specialist focused on machine learning and computer vision applications.', icon: 'fa-solid fa-brain' },
-    { name: 'Meron Tadesse', role: 'Senior Developer', bio: 'Expert in web technologies and cloud architecture.', icon: 'fa-solid fa-laptop-code' },
-    { name: 'Yonas Alemu', role: 'UI/UX Director', bio: 'Passionate about creating intuitive and beautiful user experiences.', icon: 'fa-solid fa-paint-brush' }
+    { name: 'Niftalem Awel', role: 'Founder & CEO', bio: 'Full-stack developer with 10+ years experience in building scalable solutions.', icon: 'fa-solid fa-user-tie' },
+    { name: 'Hibist Demu', role: 'Lead AI Engineer', bio: 'AI specialist focused on machine learning and computer vision applications.', icon: 'fa-solid fa-brain' },
+    { name: 'Merdekiyos Tasew', role: 'Senior Developer', bio: 'Expert in web technologies and cloud architecture.', icon: 'fa-solid fa-laptop-code' },
+    { name: 'Abel Tesfu', role: 'UI/UX Director', bio: 'Passionate about creating intuitive and beautiful user experiences.', icon: 'fa-solid fa-paint-brush' }
   ];
+
+  // Handler for contact button click
+  const handleContactClick = () => {
+    router.push('/contact');
+  };
 
   return (
     <section 
@@ -233,7 +240,7 @@ const AboutPage: React.FC = () => {
         <div className="about-cta">
           <h2>Ready to Start Your Project?</h2>
           <p>Let's discuss how we can help bring your ideas to life</p>
-          <button className="cta-button">
+          <button className="cta-button" onClick={handleContactClick}>
             <span>Contact Us Today</span>
             <i className="fa-solid fa-arrow-right"></i>
           </button>

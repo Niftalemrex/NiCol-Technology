@@ -1,0 +1,320 @@
+/* ========== FIGMA SLIDER – 70/30 SPLIT (no hover effects) ========== */
+.slider-page {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: radial-gradient(circle at 20% 30%, #0a0a0f, #030305);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .slider-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .full-swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slide-content-split {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+  }
+  
+  .slide-image-split {
+    flex: 0 0 70%;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .slide-image-split img {
+    object-fit: contain;
+    /* No transform on active */
+    transition: none;
+  }
+  
+  .slide-text-split {
+    flex: 0 0 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(16px);
+    color: #fff;
+    overflow-y: auto;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  
+  .text-inner {
+    max-width: 100%;
+  }
+  
+  .slide-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    background: rgba(255, 107, 107, 0.15);
+    padding: 0.3rem 1rem;
+    border-radius: 40px;
+    backdrop-filter: blur(4px);
+  }
+  
+  .slide-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #ffd89b, #c7e9fb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+  }
+  
+  .slide-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+  }
+  
+  .slide-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .slide-tags .tag {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(4px);
+    padding: 0.4rem 1rem;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    transition: none; /* no hover */
+  }
+  
+  .slide-counter {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: monospace;
+    margin-top: 1rem;
+  }
+  
+  /* Swiper navigation arrows – no hover scaling */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: none;
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  /* Pagination */
+  .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.4);
+    width: 8px;
+    height: 8px;
+    transition: none;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: white;
+    width: 24px;
+    border-radius: 6px;
+  }
+  
+  /* ========== SECTION STYLES – Dashboards, Localization, Features ========== */
+  .section-dashboard,
+  .section-localization,
+  .section-features {
+    padding: 5rem 1rem;
+    background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+    position: relative;
+  }
+  
+  .section-dashboard::before,
+  .section-localization::before,
+  .section-features::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.03), transparent 70%);
+    pointer-events: none;
+  }
+  
+  .container {
+    max-width: 1800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .section-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  
+  .section-header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Showcase rows – glass cards, no hover effects */
+  .showcase-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  
+  .showcase-row {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 2rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: none;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
+  }
+  
+  .row-left {
+    flex-direction: row;
+  }
+  
+  .row-right {
+    flex-direction: row-reverse;
+  }
+  
+  .showcase-image {
+    flex: 4;
+    position: relative;
+    aspect-ratio: 21 / 9.13;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .showcase-image img {
+    object-fit: contain;
+    transition: none;
+  }
+  
+  .showcase-content {
+    flex: 1;
+    padding: 2rem;
+    color: #fff;
+  }
+  
+  .showcase-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffd89b, #c7e9fb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+  }
+  
+  .showcase-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+  }
+  
+  .showcase-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .showcase-tags .tag {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.4rem 1rem;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: none;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .showcase-row {
+      flex-direction: column !important;
+      gap: 1rem;
+    }
+    .showcase-image,
+    .showcase-content {
+      flex: auto;
+      width: 100%;
+    }
+    .showcase-image {
+      aspect-ratio: 21 / 9.13;
+    }
+    .slide-content-split {
+      flex-direction: column;
+    }
+    .slide-image-split {
+      flex: 0 0 50%;
+    }
+    .slide-text-split {
+      flex: 0 0 50%;
+      padding: 1.5rem;
+    }
+    .slide-title {
+      font-size: 1.8rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .section-header h2 {
+      font-size: 2rem;
+    }
+    .section-header p {
+      font-size: 1rem;
+    }
+    .showcase-content h3 {
+      font-size: 1.5rem;
+    }
+  }

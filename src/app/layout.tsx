@@ -50,7 +50,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       "https://www.nicol.com/images/photo3.jpg"
     ],
     url: "https://nicol-technology.vercel.app",
-    telephone: "+251-911-123456",
+    telephone: "+251-939-193603",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Getu Commercial Center, Bole",

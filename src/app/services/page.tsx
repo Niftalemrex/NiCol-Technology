@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import "./ServicesPage.css";
 import StructuredData from "../../components/seo/StructuredData";
 
@@ -29,8 +30,13 @@ interface MousePosition {
 
 const ServicesPage: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const router = useRouter();
   const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  // ========== CONFIGURE BASE PATH ==========
+  // Use the actual folder name (no spaces). For example:
+  const basePath = "/services/our-services";
 
   // Structured data for SEO
   const servicesData = {
@@ -47,58 +53,58 @@ const ServicesPage: React.FC = () => {
       "NiCol Technologies provides web, mobile, AI, cloud, design, and consulting services to Ethiopian businesses and startups.",
   };
 
-  // Service list with icons and stats - ALL CARDS NOW HAVE ICONS
+  // Service list with icons and stats
   const serviceList: Service[] = [
     { 
       title: "Web Development", 
       description: "Responsive, modern websites using React, Next.js, and Tailwind CSS. Full-stack solutions with optimal performance and SEO.",
-      icon: "fa-solid fa-laptop-code", // Web development icon
+      icon: "fa-solid fa-laptop-code",
       stats: { projects: "50+", satisfaction: "98%" }
     },
     { 
       title: "Mobile App Development", 
       description: "Native Android & iOS apps using Kotlin, Java, Flutter, and Dart. Cross-platform solutions with seamless UX.",
-      icon: "fa-solid fa-mobile-screen", // Mobile app icon
+      icon: "fa-solid fa-mobile-screen",
       stats: { projects: "30+", satisfaction: "95%" }
     },
     { 
       title: "AI Solutions", 
       description: "Intelligent solutions using Python, OpenCV, and machine learning. Custom AI models for your business needs.",
-      icon: "fa-solid fa-robot", // AI/robot icon
+      icon: "fa-solid fa-robot",
       stats: { projects: "20+", satisfaction: "97%" }
     },
     { 
       title: "Cloud Computing", 
       description: "Scalable cloud infrastructure on AWS, Azure, and Google Cloud. DevOps practices for continuous delivery.",
-      icon: "fa-solid fa-cloud", // Cloud icon
+      icon: "fa-solid fa-cloud",
       stats: { projects: "25+", satisfaction: "96%" }
     },
     { 
       title: "UI/UX Design", 
       description: "User-centered design with modern aesthetics. Wireframing, prototyping, and user testing for optimal experiences.",
-      icon: "fa-solid fa-paint-brush", // Design brush icon
+      icon: "fa-solid fa-paint-brush",
       stats: { projects: "40+", satisfaction: "99%" }
     },
     { 
       title: "IT Consulting", 
       description: "Strategic technology advice, architecture planning, and digital transformation for businesses of all sizes.",
-      icon: "fa-solid fa-headset", // Consulting/headset icon
+      icon: "fa-solid fa-headset",
       stats: { projects: "60+", satisfaction: "100%" }
     },
   ];
 
   // Expanded icon sets for floating background
   const iconSets: IconSet[] = [
-    { class: 'fa-solid fa-cloud', count: 8 }, // Cloud icon for cloud computing
-    { class: 'fa-solid fa-laptop-code', count: 6 }, // Web dev icon
-    { class: 'fa-solid fa-mobile-screen', count: 7 }, // Mobile icon
-    { class: 'fa-solid fa-robot', count: 5 }, // AI icon
-    { class: 'fa-solid fa-paint-brush', count: 4 }, // Design icon
-    { class: 'fa-solid fa-headset', count: 6 }, // Consulting icon
-    { class: 'fa-solid fa-database', count: 5 }, // Database icon
-    { class: 'fa-solid fa-shield', count: 4 }, // Security icon
-    { class: 'fa-solid fa-chart-line', count: 5 }, // Analytics icon
-    { class: 'fa-solid fa-gear', count: 8 } // General gear icon
+    { class: 'fa-solid fa-cloud', count: 8 },
+    { class: 'fa-solid fa-laptop-code', count: 6 },
+    { class: 'fa-solid fa-mobile-screen', count: 7 },
+    { class: 'fa-solid fa-robot', count: 5 },
+    { class: 'fa-solid fa-paint-brush', count: 4 },
+    { class: 'fa-solid fa-headset', count: 6 },
+    { class: 'fa-solid fa-database', count: 5 },
+    { class: 'fa-solid fa-shield', count: 4 },
+    { class: 'fa-solid fa-chart-line', count: 5 },
+    { class: 'fa-solid fa-gear', count: 8 }
   ];
 
   useEffect(() => {
@@ -160,12 +166,17 @@ const ServicesPage: React.FC = () => {
       section.removeEventListener('mousemove', handleMouseMove);
       observer.disconnect();
     };
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
 
-  // Handle card click
+  // Handle card click: navigate to the single page
   const handleCardClick = (serviceTitle: string): void => {
-    const slug = serviceTitle.toLowerCase().replace(/\s+/g, '-');
-    window.location.href = `/services/${slug}`;
+    // Option 1: Navigate to the base path without any identifier
+    router.push(basePath);
+
+    // Option 2: If you need to know which service was clicked on the destination page,
+    // you can pass a query parameter, like this:
+    // const slug = serviceTitle.toLowerCase().replace(/\s+/g, '-');
+    // router.push(`${basePath}?service=${slug}`);
   };
 
   return (
@@ -198,74 +209,71 @@ const ServicesPage: React.FC = () => {
         </div>
 
         {/* Service Cards Grid */}
-        <div 
-          className="services-grid" 
-          role="list" 
-          aria-label="List of services"
-        >
-          {serviceList.map((service, idx) => (
-            <article
-              key={idx}
-              className="service-card"
-              role="listitem"
-              onClick={() => handleCardClick(service.title)}
-              onKeyDown={(e: React.KeyboardEvent) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  handleCardClick(service.title);
-                }
-              }}
-              tabIndex={0}
-              aria-labelledby={`service-title-${idx}`}
-            >
-              <div className="card-icon" aria-hidden="true">
-                <i className={service.icon}></i>
-              </div>
-              
-              <h3 
-                id={`service-title-${idx}`} 
-                className="card-title"
-              >
-                {service.title}
-              </h3>
-              
-              <p className="card-desc">{service.description}</p>
-              
-              {/* Stats Section */}
-              <div 
-                className="service-stats" 
-                role="group" 
-                aria-label="Service statistics"
-              >
-                <div className="stat-item">
-                  <span 
-                    className="stat-number" 
-                    aria-label={`${service.stats.projects} projects completed`}
-                  >
-                    {service.stats.projects}
-                  </span>
-                  <span className="stat-label">Projects</span>
-                </div>
-                <div className="stat-item">
-                  <span 
-                    className="stat-number"
-                    aria-label={`${service.stats.satisfaction} client satisfaction rate`}
-                  >
-                    {service.stats.satisfaction}
-                  </span>
-                  <span className="stat-label">Satisfaction</span>
-                </div>
-              </div>
+        <div className="services-grid">
+  {serviceList.map((service, idx) => (
+    <article
+      key={idx}
+      className="service-card"
+      role="link"
+      tabIndex={0}
+      onClick={() => handleCardClick(service.title)}
+      onKeyDown={(e: React.KeyboardEvent) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleCardClick(service.title);
+        }
+      }}
+      aria-labelledby={`service-title-${idx}`}
+    >
+      <div className="card-icon" aria-hidden="true">
+        <i className={service.icon}></i>
+      </div>
+      
+      <h3 id={`service-title-${idx}`} className="card-title">
+        {service.title}
+      </h3>
+      
+      <p className="card-desc">{service.description}</p>
+      
+      {/* Stats Section */}
+      <div className="service-stats" role="group" aria-label="Service statistics">
+        <div className="stat-item">
+          <span className="stat-number" aria-label={`${service.stats.projects} projects completed`}>
+            {service.stats.projects}
+          </span>
+          <span className="stat-label">Projects</span>
+        </div>
+        <div className="stat-item">
+          <span className="stat-number" aria-label={`${service.stats.satisfaction} client satisfaction rate`}>
+            {service.stats.satisfaction}
+          </span>
+          <span className="stat-label">Satisfaction</span>
+        </div>
+      </div>
 
-              <a 
-                href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`} 
-                className="card-link"
-                aria-label={`Learn more about ${service.title}`}
-                onClick={(e: React.MouseEvent) => e.stopPropagation()}
-              >
-                Learn more <span className="arrow" aria-hidden="true">→</span>
-              </a>
-            </article>
-          ))}
+      {/* See More link */}
+      <div className="see-more-container">
+        <span 
+          className="see-more-link" 
+          onClick={(e) => {
+            e.stopPropagation(); // prevent card click from firing twice
+            handleCardClick(service.title);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.stopPropagation();
+              handleCardClick(service.title);
+            }
+          }}
+          tabIndex={0}
+          role="button"
+          aria-label={`Learn more about ${service.title}`}
+        >
+          See More <span className="arrow">→</span>
+        </span>
+      </div>
+    </article>
+  ))}
         </div>
       </div>
     </section>

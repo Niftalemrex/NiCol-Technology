@@ -14,8 +14,18 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <h2>Contact</h2>
-          <p>Email: info@nicoltech.com</p>
-          <p>Phone: +251 11 123 4567</p>
+          <p>
+            Email:{" "}
+            <a href="mailto:Niftalemawel@gmail.com" className="footer-link">
+              Niftalemawel@gmail.com
+            </a>
+          </p>
+          <p>
+            Phone:{" "}
+            <a href="tel:+251939193603" className="footer-link">
+              +251 939 193603
+            </a>
+          </p>
           <p>Address: Addis Ababa, Ethiopia</p>
         </div>
 
@@ -23,21 +33,11 @@ export default function Footer() {
         <div>
           <h2>Quick Links</h2>
           <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/about">About Us</a>
-            </li>
-            <li>
-              <a href="/services">Services</a>
-            </li>
-            <li>
-              <a href="/reviews">Reviews</a>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
-            </li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/reviews">Reviews</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
       </div>

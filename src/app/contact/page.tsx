@@ -170,7 +170,7 @@ export default function ContactPage() {
                       </div>
                       <div className="info-details">
                         <h3 className="info-label">Phone</h3>
-                        <a href="tel:+251911123456" className="info-value">+251-911-123456</a>
+                        <a href="tel:+251939193603" className="info-value">+251-939-193603</a>
                         <p className="info-note">Mon-Fri 9am-6pm</p>
                       </div>
                     </div>
@@ -185,7 +185,7 @@ export default function ContactPage() {
                       </div>
                       <div className="info-details">
                         <h3 className="info-label">Email</h3>
-                        <a href="mailto:info@nicol.com" className="info-value">info@nicol.com</a>
+                        <a href="mailto:info@nicol.com" className="info-value">Niftalemrex@gmail.com</a>
                         <p className="info-note">24/7 support</p>
                       </div>
                     </div>

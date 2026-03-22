@@ -2,29 +2,15 @@
 
 import React, { useEffect, useState } from "react";
 import StructuredData from "../../components/seo/StructuredData";
-import { fetchReviews } from "../../lib/fetchReviews";
+import { getReviews, Review } from "../../lib/fetchReviews"; // ✅ updated import
 import Card from "../../components/ui/Card";
 import "./ReviewsPage.css";
-
-interface Review {
-  id?: string;
-  name: string;
-  comment: string;
-  rating: number;
-  created_at?: string;
-}
 
 export default function ReviewsPage() {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
   const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const [form, setForm] = useState({
-    name: "",
-    comment: "",
-    rating: 5,
-  });
-
+  const [form, setForm] = useState({ name: "", comment: "", rating: 5 });
   const [submitting, setSubmitting] = useState(false);
   const [hoveredRating, setHoveredRating] = useState(0);
   const [activeFilter, setActiveFilter] = useState<number | null>(null);
@@ -32,7 +18,7 @@ export default function ReviewsPage() {
   // 🔄 Load reviews
   async function loadReviews() {
     try {
-      const data = await fetchReviews();
+      const data = await getReviews(); // ✅ use getReviews
       setReviews(data || []);
     } catch (err) {
       console.error(err);
@@ -127,7 +113,6 @@ export default function ReviewsPage() {
       datePublished: r.created_at,
     })),
   };
-
   return (
     <>
       <StructuredData data={reviewsData} />

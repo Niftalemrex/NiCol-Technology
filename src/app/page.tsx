@@ -16,7 +16,7 @@ export default function HomePage() {
 
     // Star particles (unchanged)
     const particles: HTMLDivElement[] = [];
-    const numParticles = 1500;
+    const numParticles = 700;
     for (let i = 0; i < numParticles; i++) {
       const particle = document.createElement('div');
       particle.className = 'star-particle';
@@ -33,7 +33,7 @@ export default function HomePage() {
 
     // Shooting stars
     const shootingStars: HTMLDivElement[] = [];
-    const numShootingStars = 50;
+    const numShootingStars = 30;
     for (let i = 0; i < numShootingStars; i++) {
       const shootingStar = document.createElement('div');
       shootingStar.className = 'shooting-star';

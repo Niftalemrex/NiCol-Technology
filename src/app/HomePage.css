@@ -314,7 +314,7 @@
   display: inline-flex;
   gap: 1rem;
   will-change: transform;
-  animation-duration: 80s;
+  animation-duration: 85s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -370,7 +370,7 @@
 @media (max-width: 768px) {
   .marquee-track {
     gap: 0.7rem;
-    animation-duration: 80s;
+    animation-duration: 85s;
   }
   .tech-pill {
     padding: 0.4rem 1rem;
@@ -381,7 +381,7 @@
 @media (max-width: 480px) {
   .marquee-track {
     gap: 0.5rem;
-    animation-duration: 80s;
+    animation-duration: 85s;
   }
   .tech-pill {
     padding: 0.3rem 0.8rem;

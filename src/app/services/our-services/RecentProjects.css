@@ -1,4 +1,4 @@
-/* ========== FIGMA SLIDER – 70/30 SPLIT (no hover effects) ========== */
+/* ========== FIGMA SLIDER – 70/30 SPLIT (Dark Gold & Cream Theme) ========== */
 .slider-page {
     width: 100%;
     height: 100vh;
@@ -34,7 +34,6 @@
   
   .slide-image-split img {
     object-fit: contain;
-    /* No transform on active */
     transition: none;
   }
   
@@ -60,10 +59,10 @@
     font-size: 0.75rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #ff6b6b;
+    color: #d4af37; /* gold */
     margin-bottom: 1rem;
     font-weight: 500;
-    background: rgba(255, 107, 107, 0.15);
+    background: rgba(212, 175, 55, 0.15);
     padding: 0.3rem 1rem;
     border-radius: 40px;
     backdrop-filter: blur(4px);
@@ -74,7 +73,7 @@
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
-    background: linear-gradient(135deg, #ffd89b, #c7e9fb);
+    background: linear-gradient(135deg, #d4af37, #f5b042, #fff5e6);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -103,7 +102,7 @@
     font-size: 0.75rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.8);
-    transition: none; /* no hover */
+    transition: none;
   }
   
   .slide-counter {
@@ -113,16 +112,16 @@
     margin-top: 1rem;
   }
   
-  /* Swiper navigation arrows – no hover scaling */
+  /* Swiper navigation arrows – gold tint */
   .swiper-button-next,
   .swiper-button-prev {
     color: white;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(212, 175, 55, 0.2);
     backdrop-filter: blur(8px);
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     transition: none;
   }
   
@@ -141,7 +140,7 @@
   }
   
   .swiper-pagination-bullet-active {
-    background: white;
+    background: #d4af37;
     width: 24px;
     border-radius: 6px;
   }
@@ -153,6 +152,7 @@
     padding: 5rem 1rem;
     background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
     position: relative;
+    width: 100%;
   }
   
   .section-dashboard::before,
@@ -164,12 +164,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.03), transparent 70%);
+    background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.03), transparent 70%);
     pointer-events: none;
   }
   
   .container {
-    max-width: 1800px;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     z-index: 2;
@@ -183,7 +183,7 @@
   .section-header h2 {
     font-size: 3rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    background: linear-gradient(135deg, #d4af37, #f5b042, #fff5e6);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -199,7 +199,7 @@
     line-height: 1.6;
   }
   
-  /* Showcase rows – glass cards, no hover effects */
+  /* Showcase rows – glass cards, gold accent */
   .showcase-rows {
     display: flex;
     flex-direction: column;
@@ -214,7 +214,7 @@
     backdrop-filter: blur(12px);
     border-radius: 2rem;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.15);
     transition: none;
     box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
   }
@@ -249,7 +249,7 @@
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #ffd89b, #c7e9fb);
+    background: linear-gradient(135deg, #d4af37, #f5b042, #fff5e6);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -270,15 +270,15 @@
   }
   
   .showcase-tags .tag {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(212, 175, 55, 0.08);
     padding: 0.4rem 1rem;
     border-radius: 40px;
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     transition: none;
   }
   
-  /* Responsive */
+  /* ===== RESPONSIVE – ONLY FOR TABLET/MOBILE ===== */
   @media (max-width: 1024px) {
     .showcase-row {
       flex-direction: column !important;
@@ -308,6 +308,11 @@
   }
   
   @media (max-width: 768px) {
+    .section-dashboard,
+    .section-localization,
+    .section-features {
+      padding: 3rem 0.5rem;
+    }
     .section-header h2 {
       font-size: 2rem;
     }
@@ -316,5 +321,31 @@
     }
     .showcase-content h3 {
       font-size: 1.5rem;
+    }
+    .showcase-image {
+      aspect-ratio: 16 / 9;
+    }
+    .showcase-content {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .section-dashboard,
+    .section-localization,
+    .section-features {
+      padding: 2rem 0.5rem;
+    }
+    .showcase-content {
+      padding: 1rem;
+    }
+    .showcase-content h3 {
+      font-size: 1.3rem;
+    }
+    .showcase-content p {
+      font-size: 0.9rem;
+    }
+    .showcase-image {
+      aspect-ratio: 16 / 9;
     }
   }

@@ -1,19 +1,19 @@
-/* Header.css - iOS 16 Glass Morphism Edition */
+/* Header.css - Dark Gold Edition */
 
 /* ===== CSS Variables ===== */
 :root {
-  --primary-color: #0071e3;
-  --primary-glow: rgba(0, 113, 227, 0.3);
-  --secondary-color: #5e5ce0;
-  --accent-color: #00c7be;
+  --primary-color: #d4af37; /* dark gold */
+  --primary-glow: rgba(212, 175, 55, 0.3);
+  --secondary-color: #b8860b; /* darker gold */
+  --accent-color: #f5b042; /* warm gold */
   --light-bg: rgba(255, 255, 255, 0.7);
   --text-primary: #1d1c1f;
   --text-secondary: #86868b;
   --text-tertiary: #a1a1a6;
   --border-color: rgba(0, 0, 0, 0.1);
-  --border-hover: rgba(0, 113, 227, 0.3);
-  --gradient-1: linear-gradient(135deg, #0071e3 0%, #5e5ce0 50%, #00c7be 100%);
-  --gradient-2: linear-gradient(135deg, rgba(0, 113, 227, 0.1) 0%, rgba(94, 92, 224, 0.1) 50%, rgba(0, 199, 190, 0.1) 100%);
+  --border-hover: rgba(212, 175, 55, 0.3);
+  --gradient-1: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #f5b042 100%);
+  --gradient-2: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 134, 11, 0.1) 50%, rgba(245, 176, 66, 0.1) 100%);
   --glass-effect: blur(30px) saturate(200%);
   --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --transition-default: all 0.3s ease;
@@ -22,7 +22,7 @@
   --border-radius-lg: 24px;
   --border-radius-full: 50px;
   --ios-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.02) inset;
-  --ios-shadow-hover: 0 20px 40px -15px rgba(0, 113, 227, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  --ios-shadow-hover: 0 20px 40px -15px rgba(212, 175, 55, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
   --header-height: 70px;
 }
 
@@ -156,9 +156,9 @@
 .key-link:hover {
   transform: scale(1.1) rotate(5deg);
   background: linear-gradient(135deg, 
-    rgba(0, 113, 227, 0.2) 0%, 
-    rgba(94, 92, 224, 0.2) 50%, 
-    rgba(0, 199, 190, 0.2) 100%
+    rgba(212, 175, 55, 0.2) 0%, 
+    rgba(184, 134, 11, 0.2) 50%, 
+    rgba(245, 176, 66, 0.2) 100%
   );
   border-color: var(--border-hover);
   box-shadow: var(--ios-shadow-hover);
@@ -222,7 +222,7 @@
   width: 100%;
 }
 
-/* Active link styling (add this dynamically if needed) */
+/* Active link styling */
 .nav-link.active {
   color: var(--primary-color);
   font-weight: 600;
@@ -252,9 +252,9 @@
 
 .header-burger:hover {
   background: linear-gradient(135deg, 
-    rgba(0, 113, 227, 0.15) 0%, 
-    rgba(94, 92, 224, 0.15) 50%, 
-    rgba(0, 199, 190, 0.15) 100%
+    rgba(212, 175, 55, 0.15) 0%, 
+    rgba(184, 134, 11, 0.15) 50%, 
+    rgba(245, 176, 66, 0.15) 100%
   );
   transform: scale(1.05);
 }

@@ -1,11 +1,12 @@
-/* AboutPage.css - Premium Design Matching Hero, Services, and Technologies */
+/* AboutPage.css - Premium Design with Dark Gold & Cream Accents */
 
 /* ===== CSS Variables & Theme Configuration ===== */
 :root {
-  --primary-color: #0071e3;
-  --primary-glow: rgba(0, 113, 227, 0.3);
-  --secondary-color: #5e5ce0;
-  --accent-color: #00c7be;
+  --header-height: 80px; /* adjust to match your actual header height */
+  --primary-color: #d4af37;      /* dark gold */
+  --primary-glow: rgba(212, 175, 55, 0.3);
+  --secondary-color: #b8860b;    /* dark goldenrod */
+  --accent-color: #fff5e6;       /* cream */
   --light-bg: #ffffff;
   --off-white: #f5f5f7;
   --card-bg: rgba(255, 255, 255, 0.7);
@@ -13,10 +14,10 @@
   --text-secondary: #86868b;
   --text-tertiary: #a1a1a6;
   --border-color: rgba(0, 0, 0, 0.1);
-  --border-hover: rgba(0, 113, 227, 0.3);
+  --border-hover: rgba(212, 175, 55, 0.3);
   --shadow-color: rgba(0, 0, 0, 0.1);
-  --gradient-1: linear-gradient(135deg, #0071e3 0%, #5e5ce0 50%, #00c7be 100%);
-  --gradient-2: linear-gradient(135deg, rgba(0, 113, 227, 0.1) 0%, rgba(94, 92, 224, 0.1) 50%, rgba(0, 199, 190, 0.1) 100%);
+  --gradient-1: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #fff5e6 100%);
+  --gradient-2: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 134, 11, 0.1) 50%, rgba(255, 245, 230, 0.1) 100%);
   --gradient-3: linear-gradient(135deg, #f5f5f7 0%, #ffffff 50%, #f5f5f7 100%);
   --glass-effect: blur(20px) saturate(180%);
   --ios-glass: blur(30px) saturate(200%);
@@ -28,13 +29,13 @@
   --border-radius-xl: 32px;
   --border-radius-full: 50px;
   --ios-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.02) inset;
-  --ios-shadow-hover: 0 30px 60px -20px rgba(0, 113, 227, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  --ios-shadow-hover: 0 30px 60px -20px rgba(212, 175, 55, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
 }
 
 /* ===== Base Section Styles ===== */
 .about-page {
   position: relative;
-  padding: 6rem 2rem;
+  padding: calc(6rem + var(--header-height)) 2rem 6rem 2rem;
   background: var(--gradient-3);
   color: var(--text-primary);
   overflow: hidden;
@@ -42,7 +43,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Subtle Pattern Background - Matching Hero */
+/* Subtle Pattern Background - gold/cream tones */
 .about-page::before {
   content: '';
   position: absolute;
@@ -50,9 +51,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: radial-gradient(circle at 30% 40%, rgba(0, 113, 227, 0.02) 0%, transparent 30%),
-                    radial-gradient(circle at 70% 60%, rgba(94, 92, 224, 0.02) 0%, transparent 30%),
-                    radial-gradient(circle at 50% 80%, rgba(0, 199, 190, 0.02) 0%, transparent 30%);
+  background-image: radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.02) 0%, transparent 30%),
+                    radial-gradient(circle at 70% 60%, rgba(184, 134, 11, 0.02) 0%, transparent 30%),
+                    radial-gradient(circle at 50% 80%, rgba(255, 245, 230, 0.02) 0%, transparent 30%);
   opacity: 0.8;
   pointer-events: none;
 }
@@ -95,18 +96,18 @@
 /* ===== Floating Icons Background ===== */
 .floating-about-icon {
   position: absolute;
-  color: rgba(0, 113, 227, 0.05);
+  color: rgba(212, 175, 55, 0.05);
   pointer-events: none;
   z-index: 1;
   animation: floatAbout 25s infinite linear;
 }
 
 .floating-about-icon:nth-child(even) {
-  color: rgba(94, 92, 224, 0.05);
+  color: rgba(184, 134, 11, 0.05);
 }
 
 .floating-about-icon:nth-child(3n) {
-  color: rgba(0, 199, 190, 0.05);
+  color: rgba(255, 245, 230, 0.05);
 }
 
 @keyframes floatAbout {
@@ -459,9 +460,9 @@
 .value-card:hover .value-icon {
   transform: scale(1.1) rotate(5deg);
   background: linear-gradient(135deg, 
-    rgba(0, 113, 227, 0.2) 0%, 
-    rgba(94, 92, 224, 0.2) 50%, 
-    rgba(0, 199, 190, 0.2) 100%
+    rgba(212, 175, 55, 0.2) 0%, 
+    rgba(184, 134, 11, 0.2) 50%, 
+    rgba(255, 245, 230, 0.2) 100%
   );
 }
 
@@ -619,12 +620,12 @@
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition-smooth);
-  box-shadow: 0 10px 20px -5px rgba(0, 113, 227, 0.3);
+  box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.3);
 }
 
 .cta-button:hover {
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 20px 30px -5px rgba(0, 113, 227, 0.5);
+  box-shadow: 0 20px 30px -5px rgba(212, 175, 55, 0.5);
 }
 
 .cta-button i {
@@ -649,6 +650,9 @@
 
 /* ===== Responsive Design ===== */
 @media (max-width: 1200px) {
+  .about-page {
+    padding: calc(5rem + var(--header-height)) 2rem 5rem 2rem;
+  }
   .values-grid,
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -656,30 +660,28 @@
 }
 
 @media (max-width: 992px) {
+  .about-page {
+    padding: calc(4rem + var(--header-height)) 2rem 4rem 2rem;
+  }
   .about-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
   .mission-section {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
   .timeline::before {
     left: 30px;
   }
-  
   .timeline-item,
   .timeline-item:nth-child(even) {
     flex-direction: row;
     justify-content: flex-start;
     gap: 2rem;
   }
-  
   .timeline-year {
     width: 80px;
   }
-  
   .timeline-content {
     width: calc(100% - 120px);
   }
@@ -687,34 +689,27 @@
 
 @media (max-width: 768px) {
   .about-page {
-    padding: 4rem 1.5rem;
+    padding: calc(3rem + var(--header-height)) 1.5rem 3rem 1.5rem;
   }
-  
   .about-stats-grid {
     grid-template-columns: 1fr;
   }
-  
   .values-grid,
   .team-grid {
     grid-template-columns: 1fr;
   }
-  
   .about-title {
     font-size: 2.2rem;
   }
-  
   .section-title {
     font-size: 2rem;
   }
-  
   .about-cta {
     padding: 3rem 1.5rem;
   }
-  
   .about-cta h2 {
     font-size: 1.8rem;
   }
-  
   .floating-about-icon {
     display: none;
   }
@@ -722,35 +717,28 @@
 
 @media (max-width: 480px) {
   .about-page {
-    padding: 3rem 1rem;
+    padding: calc(2rem + var(--header-height)) 1rem 2rem 1rem;
   }
-  
   .about-badge {
     font-size: 0.8rem;
   }
-  
   .about-title {
     font-size: 1.8rem;
   }
-  
   .about-subtitle {
     font-size: 1rem;
   }
-  
   .timeline-item {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
-  
   .timeline-year {
     width: auto;
   }
-  
   .timeline-content {
     width: 100%;
   }
-  
   .cta-button {
     width: 100%;
     justify-content: center;
@@ -770,7 +758,6 @@
     animation: none;
     transition: none;
   }
-  
   .floating-about-icon {
     display: none;
   }
@@ -780,11 +767,9 @@
 .about-page::-webkit-scrollbar {
   width: 8px;
 }
-
 .about-page::-webkit-scrollbar-track {
   background: var(--off-white);
 }
-
 .about-page::-webkit-scrollbar-thumb {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   border-radius: 4px;
@@ -795,17 +780,18 @@
   background: var(--primary-color);
   color: white;
 }
+
 /* ===== Rocket Animation for "Innovation in Action" ===== */
 .mission-image .image-placeholder i {
   display: inline-block;
   animation: rocketFloat 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(0, 113, 227, 0.3));
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
   transition: filter 0.3s ease;
 }
 
 .mission-image .image-placeholder i:hover {
   animation: rocketShoot 0.6s cubic-bezier(0.2, 0.9, 0.4, 1) forwards;
-  filter: drop-shadow(0 0 20px rgba(0, 113, 227, 0.8));
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
 }
 
 @keyframes rocketFloat {
